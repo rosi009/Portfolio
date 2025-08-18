@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mst. Punni Akter - Portfolio</title>
+  <!-- Font Awesome for skill icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #ffffff;
+      color: #333;
+    }
+    a { text-decoration: none; }
+    section { padding: 60px 20px; }
+    h1, h2, h3 { margin: 0; }
+    h2 { color: #b8860b; margin-bottom: 20px; text-align: center; }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #fff;
+      border-bottom: 1px solid #ddd;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      transition: background 0.3s ease;
+    }
+    nav h1 { font-size: 20px; font-weight: bold; color: #b8860b; }
+    nav ul { display: flex; list-style: none; margin: 0; padding: 0; }
+    nav ul li { margin-left: 20px; }
+    nav ul li a {
+      color: #333;
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+    nav ul li a.active, nav ul li a:hover { background: #b8860b; color: white; }
+
+    #home {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: left;
+      padding: 100px 20px 60px;
+      background: linear-gradient(to bottom right, #fff8e7, #ffffff);
+    }
+    #home .intro { max-width: 800px; }
+    #home h1 span { color: #b8860b; }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-weight: bold;
+      margin: 5px 5px 0 0;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .btn-primary { background: #b8860b; color: white; }
+    .btn-primary:hover { background: #daa520; transform: scale(1.05); }
+    .btn-outline { border: 2px solid #b8860b; color: #b8860b; }
+    .btn-outline:hover { background: #b8860b; color: white; transform: scale(1.05); }
+
+    .card {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 10px;
+      transition: 0.3s;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    }
+    .card:hover { box-shadow: 0 8px 16px rgba(0,0,0,0.15); transform: translateY(-5px); }
+
+    .grid { display: grid; gap: 20px; }
+    .grid-2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+
+    iframe { width: 100%; max-width: 900px; height: 500px; border: none; border-radius: 8px; margin: 20px auto; display: block; }
+
+    #contact { padding: 60px 20px; background: #fff8e7; }
+    #contact .container { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+    #contact form, #contact .card { flex: 1; min-width: 320px; max-width: 450px; }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 12px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      background: #fff;
+      color: #333;
+    }
+    form input:focus, form textarea:focus { outline: 2px solid #b8860b; }
+    form button { width: 100%; }
+
+    /* ===== Skills Section ===== */
+    .skills-section {
+      padding: 60px 20px;
+      background: #fff;
+      text-align: center;
+    }
+    .skills-section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #222;
+    }
+    .skills-section h3 {
+      margin-top: 30px;
+      margin-bottom: 15px;
+      font-size: 1.4rem;
+      color: #444;
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .skill {
+      background: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: left;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .skill:hover { transform: translateY(-5px); box-shadow: 0 8px 16px rgba(0,0,0,0.15); }
+    .skill span {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+    .progress {
+      width: 100%;
+      background: #eee;
+      border-radius: 8px;
+      overflow: hidden;
+      height: 18px;
+    }
+    .progress-bar {
+      height: 100%;
+      line-height: 18px;
+      text-align: right;
+      padding-right: 6px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      color: #fff;
+      border-radius: 8px;
+      width: 0; /* Start at 0 for animation */
+      transition: width 2s ease-in-out;
+    }
+
+    /* ===== Fade-in Animation for Sections ===== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <h1>Mst. Punni Akter</h1>
+    <ul>
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#extracurricular">Extracurricular</a></li>
+      <li><a href="#resume">Resume</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Home -->
+  <section id="home">
+    <div class="intro fade-in">
+      <h1>Hi, I'm <span>Punni Akter</span></h1>
+      <p><strong>Engineering Student | Computer Science</strong></p>
+      <p>Driven by curiosity and a passion for technology, I aim to contribute to projects that solve real-world problems. I’m eager to explore emerging innovations, grow through challenges, and turn ideas into impactful solutions using my technical expertise.</p>
+      <div>
+        <a href="#contact" class="btn btn-primary">Get in Touch</a>
+        <a href="#resume" class="btn btn-outline">View Resume</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <!-- Education -->
+<section id="education" class="fade-in">
+  <h2>Education</h2>
+  <!-- First row with two cards -->
+  <div class="grid" style="grid-template-columns: repeat(2, 1fr); gap: 20px;">
+    <div class="card fade-in">
+      <h3>B.Sc in CSE</h3>
+      <p>Green University of Bangladesh</p>
+      <p>CGPA: 3.29 | 2022 - Present</p>
+    </div>
+    <div class="card fade-in">
+      <h3>HSC in Science</h3>
+      <p>Govt. Murapara College</p>
+      <p>GPA: 4.92 | 2020</p>
+    </div>
+  </div>
+  <!-- Second row with third card -->
+  <div class="grid" style="margin-top: 20px;">
+    <div class="card fade-in">
+      <h3>SSC in Science</h3>
+      <p>H.R Model High School</p>
+      <p>GPA: 4.67 | 2018</p>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Research -->
+  <section id="research" class="fade-in">
+    <h2>Research</h2>
+    <div class="grid grid-2">
+      <div class="card fade-in">
+        <h3>Self-Healing Zero Trust Architecture with Quantum Resilience (Ongoing Academic Thesis)</h3>
+        <p><strong>Supervised by Dr. Md. Saiful Azad, Dean FSE & Director IQAC, Green University of Bangladesh</strong></p>
+        <p>This research integrates zero trust principles with self-healing and quantum-resilient cryptography to create adaptive, secure systems for critical infrastructures.</p>
+      </div>
+      <div class="card fade-in">
+        <h3>Cross-Lingual Fake News Detection Using Code-Mixed Text (Ongoing Thesis)</h3>
+        <p><strong>Supervised by Md. Rajibul Palas, Lecturer</strong></p>
+        <p>A hybrid ML approach combining feature-based and deep learning techniques to detect fake news across multiple languages and code-mixed texts.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="fade-in">
+    <h2>Projects</h2>
+    <div class="grid grid-2">
+      <div class="card fade-in">
+        <h3>EduTrack360 – Unified Attendance Management Platform</h3>
+        <p><strong>April 2024</strong></p>
+        <p><strong>Frontend:</strong> Next.js, React, Material-UI<br>
+           <strong>Backend:</strong> Node.js, MongoDB Atlas<br>
+           <strong>Features:</strong> Geo-fencing, dashboards, reminders, responsive design.</p>
+      </div>
+      <div class="card fade-in">
+        <h3>2D N-Queens Problem Solver and Visualizer</h3>
+        <p><strong>Algorithms:</strong> Backtracking, Genetic Algorithm<br>
+           <strong>Technologies:</strong> Python, Tkinter, Matplotlib<br>
+           <strong>Features:</strong> Multiple solving methods, visualization, GUI interface.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="skills-section fade-in">
+    <div class="container">
+      <h2>Skills & Expertise</h2>
+
+      <!-- Technical Skills -->
+      <h3>Technical Skills</h3>
+      <div class="skills-grid">
+        <div class="skill"><span><i class="fab fa-cuttlefish"></i> C</span><div class="progress"><div class="progress-bar" data-width="95%" style="background:#4a90e2;">95%</div></div></div>
+        <div class="skill"><span><i class="fab fa-cuttlefish"></i> C++</span><div class="progress"><div class="progress-bar" data-width="90%" style="background:#0077b6;">90%</div></div></div>
+        <div class="skill"><span><i class="fab fa-python"></i> Python</span><div class="progress"><div class="progress-bar" data-width="90%" style="background:#2a9d8f;">90%</div></div></div>
+        <div class="skill"><span><i class="fab fa-java"></i> Java</span><div class="progress"><div class="progress-bar" data-width="65%" style="background:#f4a261;">65%</div></div></div>
+        <div class="skill"><span><i class="fab fa-js"></i> JavaScript</span><div class="progress"><div class="progress-bar" data-width="70%" style="background:#f7df1e; color:#000;">70%</div></div></div>
+        <div class="skill"><span><i class="fab fa-react"></i> React</span><div class="progress"><div class="progress-bar" data-width="60%" style="background:#61dafb; color:#000;">60%</div></div></div>
+        <div class="skill"><span><i class="fab fa-node-js"></i> Node.js</span><div class="progress"><div class="progress-bar" data-width="55%" style="background:#3c873a;">55%</div></div></div>
+        <div class="skill"><span><i class="fas fa-database"></i> MongoDB</span><div class="progress"><div class="progress-bar" data-width="40%" style="background:#4caf50;">40%</div></div></div>
+        <div class="skill"><span><i class="fas fa-database"></i> SQL</span><div class="progress"><div class="progress-bar" data-width="85%" style="background:#264653;">85%</div></div></div>
+        <div class="skill"><span><i class="fab fa-git-alt"></i> Git</span><div class="progress"><div class="progress-bar" data-width="85%" style="background:#e76f51;">85%</div></div></div>
+        <div class="skill"><span><i class="fab fa-html5"></i> HTML5</span><div class="progress"><div class="progress-bar" data-width="90%" style="background:#e34f26;">90%</div></div></div>
+        <div class="skill"><span><i class="fab fa-css3-alt"></i> CSS3</span><div class="progress"><div class="progress-bar" data-width="85%" style="background:#2965f1;">85%</div></div></div>
+        <div class="skill"><span><i class="fas fa-wind"></i> Tailwind CSS</span><div class="progress"><div class="progress-bar" data-width="90%" style="background:#06b6d4;">90%</div></div></div>
+      </div>
+
+      <!-- Soft Skills -->
+      <h3>Soft Skills</h3>
+      <div class="skills-grid">
+        <div class="skill"><span><i class="fas fa-users"></i> Leadership</span><div class="progress"><div class="progress-bar" data-width="95%" style="background:#8e44ad;">95%</div></div></div>
+        <div class="skill"><span><i class="fas fa-comments"></i> Communication</span><div class="progress"><div class="progress-bar" data-width="90%" style="background:#16a085;">90%</div></div></div>
+        
+    </div>
+  </section>
+
+  <!-- Extracurricular -->
+ <section id="extracurricular" class="fade-in" style="padding: 40px 20px;">
+  <div style="
+    max-width: 800px;
+    margin: auto;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  ">
+    <h2 style="margin-top: 0; color: #222;">EXTRA CURRICULAR ACTIVITIES</h2>
+    <p style="margin-bottom: 15px;">
+      Intern Content Writer at 
+      <a href="#" style="color: green; font-weight: bold; text-decoration: none;">
+        Green University Center for International Affairs – GCIA
+      </a>
+    </p>
+    <ul style="padding-left: 20px; margin: 0;">
+      <li style="margin-bottom: 8px;">
+        Created academic and promotional content for university events and publications.
+      </li>
+      <li style="margin-bottom: 8px;">
+        Collaborated with international teams to develop outreach materials.
+      </li>
+      <li>
+        Organized and supported MOUs between universities across multiple countries.
+      </li>
+    </ul>
+  </div>
+</section>
+
+  <!-- Resume -->
+  <section id="resume" class="fade-in">
+    <h2>Resume</h2>
+    <div style="text-align:center; margin-bottom:15px;">
+      <a href="Punni Akter.pdf" download class="btn btn-primary">Download Resume</a>
+    </div>
+    <iframe src="Punni Akter.pdf"></iframe>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="fade-in">
+    <h2>Contact Me</h2>
+    <div class="container">
+      <form id="contactForm">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+      </form>
+      <div class="card fade-in">
+        <h3>Contact Info</h3>
+        <p>Email: akterpunni8@gmail.com</p>
+        <p>Phone: +880- 1966554696</p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Section fade-in on scroll
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = { threshold: 0.2 };
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, appearOptions);
+    faders.forEach(fader => appearOnScroll.observe(fader));
+
+    // Animate progress bars when skills section visible
+    const skillsSection = document.querySelector('.skills-section');
+    const progressBars = document.querySelectorAll('.progress-bar');
+
+    const skillObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          progressBars.forEach(bar => {
+            bar.style.width = bar.getAttribute('data-width');
+          });
+          observer.unobserve(skillsSection);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    skillObserver.observe(skillsSection);
+  </script>
+</body>
+</html>
