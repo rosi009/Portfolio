@@ -86,7 +86,7 @@
     iframe { width: 100%; max-width: 900px; height: 500px; border: none; border-radius: 8px; margin: 20px auto; display: block; }
 
     #contact { padding: 60px 20px; background: #fff8e7; }
-    #contact .container { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+    #contact .container { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; max-width: 950px; margin: auto; }
     #contact form, #contact .card { flex: 1; min-width: 320px; max-width: 450px; }
 
     form input, form textarea {
@@ -199,32 +199,28 @@
   </section>
 
   <!-- Education -->
-  <!-- Education -->
-<section id="education" class="fade-in">
-  <h2>Education</h2>
-  <!-- First row with two cards -->
-  <div class="grid" style="grid-template-columns: repeat(2, 1fr); gap: 20px;">
-    <div class="card fade-in">
-      <h3>B.Sc in CSE</h3>
-      <p>Green University of Bangladesh</p>
-      <p>CGPA: 3.29 | 2022 - Present</p>
+  <section id="education" class="fade-in">
+    <h2>Education</h2>
+    <div class="grid" style="grid-template-columns: repeat(2, 1fr); gap: 20px;">
+      <div class="card fade-in">
+        <h3>B.Sc in CSE</h3>
+        <p>Green University of Bangladesh</p>
+        <p>CGPA: 3.29 | 2022 - Present</p>
+      </div>
+      <div class="card fade-in">
+        <h3>HSC in Science</h3>
+        <p>Govt. Murapara College</p>
+        <p>GPA: 4.92 | 2020</p>
+      </div>
     </div>
-    <div class="card fade-in">
-      <h3>HSC in Science</h3>
-      <p>Govt. Murapara College</p>
-      <p>GPA: 4.92 | 2020</p>
+    <div class="grid" style="margin-top: 20px;">
+      <div class="card fade-in">
+        <h3>SSC in Science</h3>
+        <p>H.R Model High School</p>
+        <p>GPA: 4.67 | 2018</p>
+      </div>
     </div>
-  </div>
-  <!-- Second row with third card -->
-  <div class="grid" style="margin-top: 20px;">
-    <div class="card fade-in">
-      <h3>SSC in Science</h3>
-      <p>H.R Model High School</p>
-      <p>GPA: 4.67 | 2018</p>
-    </div>
-  </div>
-</section>
-
+  </section>
 
   <!-- Research -->
   <section id="research" class="fade-in">
@@ -243,44 +239,47 @@
     </div>
   </section>
 
-  
-    <!-- Projects -->
-<section id="projects" class="fade-in">
-  <h2>Projects</h2>
-  <div class="grid grid-2">
-    <!-- Existing Project 1 -->
-    <div class="card fade-in">
-      <h3>EduTrack360 – Unified Attendance Management Platform</h3>
-      <p><strong>April 2024</strong></p>
-      <p>
-        <strong>Frontend:</strong> Next.js, React, Material-UI<br>
-        <strong>Backend:</strong> Node.js, MongoDB Atlas<br>
-        <strong>Features:</strong> Geo-fencing, dashboards, reminders, responsive design.
-      </p>
-    </div>
+  <!-- Projects -->
+  <section id="projects" class="fade-in">
+    <h2>Projects</h2>
+    <div class="grid grid-2">
+      <div class="card fade-in">
+        <h3>EduTrack360 – Unified Attendance Management Platform</h3>
+        <p><strong>April 2024</strong></p>
+        <p><strong>Frontend:</strong> Next.js, React, Material-UI<br>
+           <strong>Backend:</strong> Node.js, MongoDB Atlas<br>
+           <strong>Features:</strong> Geo-fencing, dashboards, reminders, responsive design.
+        </p>
+      </div>
 
-    <!-- Existing Project 2 -->
-    <div class="card fade-in">
-      <h3>2D N-Queens Problem Solver and Visualizer</h3>
-      <p>
-        <strong>Algorithms:</strong> Backtracking, Genetic Algorithm<br>
-        <strong>Technologies:</strong> Python, Tkinter, Matplotlib<br>
-        <strong>Features:</strong> Multiple solving methods, visualization, GUI interface.
-      </p>
-    </div>
+      <div class="card fade-in">
+        <h3>2D N-Queens Problem Solver and Visualizer</h3>
+        <p><strong>Algorithms:</strong> Backtracking, Genetic Algorithm<br>
+           <strong>Technologies:</strong> Python, Tkinter, Matplotlib<br>
+           <strong>Features:</strong> Multiple solving methods, visualization, GUI interface.
+        </p>
+      </div>
 
-    <!-- New Project: Student Management -->
-    <div class="card fade-in">
-      <h3>Student Management System</h3>
-      <p>
-        <strong>Backend:</strong> PHP (with PDO for secure database operations)<br>
-        <strong>Database:</strong> MySQL (schema + initial data via <code>init.sql</code>)<br>
-        <strong>Frontend:</strong> HTML + CSS (custom styles)<br>
-        <strong>Authentication:</strong> PHP sessions with role-based access control (Admin, Student)
-      </p>
+      <div class="card fade-in">
+        <h3>Student Management System</h3>
+        <p><strong>Backend:</strong> PHP with PDO<br>
+           <strong>Database:</strong> MySQL<br>
+           <strong>Frontend:</strong> HTML + CSS<br>
+           <strong>Authentication:</strong> Role-based access (Admin, Student)
+        </p>
+      </div>
+
+      <!-- New Project -->
+      <div class="card fade-in">
+        <h3>Doctor Appointment Management System</h3>
+        <p><strong>Frontend:</strong> Next.js (App Router, TypeScript), React, Tailwind CSS<br>
+           <strong>State Management:</strong> Zustand, React Query<br>
+           <strong>Tools:</strong> Axios, Git, VS Code, React Hot Toast, Vercel<br>
+           <strong>Features:</strong> Authentication & role-based redirection, appointment booking & management, doctor search & filters, optimistic UI updates, reusable components, modern UI/UX.
+        </p>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
   <!-- Skills -->
   <section id="skills" class="skills-section fade-in">
@@ -305,46 +304,51 @@
         <div class="skill"><span><i class="fas fa-wind"></i> Tailwind CSS</span><div class="progress"><div class="progress-bar" data-width="90%" style="background:#06b6d4;">90%</div></div></div>
       </div>
 
+      <!-- Machine Learning Libraries -->
+      <h3>Machine Learning Libraries</h3>
+      <div class="skills-grid">
+        <div class="skill"><span><i class="fas fa-cogs"></i> NumPy</span></div>
+        <div class="skill"><span><i class="fas fa-table"></i> Pandas</span></div>
+        <div class="skill"><span><i class="fas fa-chart-line"></i> Matplotlib</span></div>
+        <div class="skill"><span><i class="fas fa-brain"></i> Keras</span></div>
+        <div class="skill"><span><i class="fas fa-flask"></i> Scikit-Learn</span></div>
+        <div class="skill"><span><i class="fas fa-robot"></i> PyTorch</span></div>
+        <div class="skill"><span><i class="fas fa-network-wired"></i> TensorFlow</span></div>
+      </div>
+
+      <!-- Software Tools -->
+      <h3>Software Tools</h3>
+      <div class="skills-grid">
+        <div class="skill"><span><i class="fas fa-code"></i> VS Code</span></div>
+        <div class="skill"><span><i class="fas fa-pen-nib"></i> LaTeX</span></div>
+        <div class="skill"><span><i class="fas fa-cubes"></i> NetBeans</span></div>
+        <div class="skill"><span><i class="fas fa-laptop-code"></i> PyCharm</span></div>
+        <div class="skill"><span><i class="fas fa-server"></i> XAMPP</span></div>
+      </div>
+
       <!-- Soft Skills -->
       <h3>Soft Skills</h3>
       <div class="skills-grid">
         <div class="skill"><span><i class="fas fa-users"></i> Leadership</span><div class="progress"><div class="progress-bar" data-width="95%" style="background:#8e44ad;">95%</div></div></div>
         <div class="skill"><span><i class="fas fa-comments"></i> Communication</span><div class="progress"><div class="progress-bar" data-width="90%" style="background:#16a085;">90%</div></div></div>
-        
+      </div>
     </div>
   </section>
 
   <!-- Extracurricular -->
- <section id="extracurricular" class="fade-in" style="padding: 40px 20px;">
-  <div style="
-    max-width: 800px;
-    margin: auto;
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 25px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-  ">
-    <h2 style="margin-top: 0; color: #222;">EXTRA CURRICULAR ACTIVITIES</h2>
-    <p style="margin-bottom: 15px;">
-      Intern Content Writer at 
-      <a href="#" style="color: green; font-weight: bold; text-decoration: none;">
-        Green University Center for International Affairs – GCIA
-      </a>
-    </p>
-    <ul style="padding-left: 20px; margin: 0;">
-      <li style="margin-bottom: 8px;">
-        Created academic and promotional content for university events and publications.
-      </li>
-      <li style="margin-bottom: 8px;">
-        Collaborated with international teams to develop outreach materials.
-      </li>
-      <li>
-        Organized and supported MOUs between universities across multiple countries.
-      </li>
-    </ul>
-  </div>
-</section>
+  <section id="extracurricular" class="fade-in" style="padding: 40px 20px;">
+    <div style="max-width: 800px; margin: auto; background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 25px; box-shadow: 0 4px 10px rgba(0,0,0,0.08);">
+      <h2 style="margin-top: 0; color: #222;">EXTRA CURRICULAR ACTIVITIES</h2>
+      <p style="margin-bottom: 15px;">Intern Content Writer at 
+        <a href="#" style="color: green; font-weight: bold; text-decoration: none;">Green University Center for International Affairs – GCIA</a>
+      </p>
+      <ul style="padding-left: 20px; margin: 0;">
+        <li style="margin-bottom: 8px;">Created academic and promotional content for university events and publications.</li>
+        <li style="margin-bottom: 8px;">Collaborated with international teams to develop outreach materials.</li>
+        <li>Organized and supported MOUs between universities across multiple countries.</li>
+      </ul>
+    </div>
+  </section>
 
   <!-- Resume -->
   <section id="resume" class="fade-in">
@@ -406,4 +410,3 @@
   </script>
 </body>
 </html>
-
